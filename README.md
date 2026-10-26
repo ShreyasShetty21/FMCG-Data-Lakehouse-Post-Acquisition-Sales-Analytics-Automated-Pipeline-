@@ -63,3 +63,28 @@ A Databricks SQL dashboard shows total revenue, quantity sold, unique customers,
 - Four tasks run in sequence: `dim_processing_customers` → `dim_processing_products` → `dim_processing_prices` → `fact_processing_orders`.
 - Dimensions run before the fact load because the fact join depends on `product_code`.
 - Notebooks are parameterized with widgets (`catalog`, `data_source`).
+
+## Project Structure
+
+fmcg-project/
+├── architecture/
+│   └── project_architecture.png
+├── datasets/
+│   ├── 1_parent_company/
+│   └── 2_child_company/
+├── notebooks/
+│   ├── 1_setup/
+│   │   ├── setup_catalogs.py
+│   │   ├── utilities.py
+│   │   └── dim_date_table_creation.py
+│   ├── 2_dimension_data_processing/
+│   │   ├── 1_customer_data_processing.py
+│   │   ├── 2_products_data_processing.py
+│   │   └── 3_pricing_data_processing.py
+│   └── 3_fact_data_processing/
+│       ├── 1_full_load_fact.py
+│       └── 2_incremental_load_fact.py
+├── sql/
+│   ├── denormalise_table_query_fmcg.txt
+│   └── add parental_incremental_update to fact_orders in gold.txt
+└── README.md
