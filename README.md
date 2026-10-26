@@ -49,3 +49,9 @@ Star schema: fact_orders with dim_customers, dim_products, dim_gross_price and d
 dim_date is generated programmatically at month grain (2024-01 to 2025-12).
 vw_fact_orders_enriched is a denormalized view with a derived metric (total_amount_inr = sold_quantity × price_inr).
 A Databricks SQL dashboard shows total revenue, quantity sold, unique customers, average selling price, revenue by channel, top products and customers, monthly trend and top variants. Genie is set up for natural-language queries.
+
+### Orchestration
+- Automated with a **Databricks Workflow (Lakeflow Job)** named *FMCG Incremental Update*, running on serverless compute.
+- Four tasks run in sequence: `dim_processing_customers` → `dim_processing_products` → `dim_processing_prices` → `fact_processing_orders`.
+- Dimensions run before the fact load because the fact join depends on `product_code`.
+- Notebooks are parameterized with widgets (`catalog`, `data_source`).
