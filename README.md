@@ -66,6 +66,9 @@ A Databricks SQL dashboard shows total revenue, quantity sold, unique customers,
 
 ## Project Structure
 
+### Project Structure
+
+```text
 fmcg-project/
 ├── architecture/
 │   └── project_architecture.png
@@ -88,3 +91,4 @@ fmcg-project/
 │   ├── denormalise_table_query_fmcg.txt
 │   └── add parental_incremental_update to fact_orders in gold.txt
 └── README.md
+```
