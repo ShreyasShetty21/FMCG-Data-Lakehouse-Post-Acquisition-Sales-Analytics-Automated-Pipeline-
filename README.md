@@ -7,9 +7,9 @@ Sports-equipment company, the parent acquired SportsBar (a nutrition-bar company
 
 The task was to:
 
-1.Ingest the child company's raw daily order files and dimension files.
-2.Clean and standardize them to match the parent's data model.
-3.Merge both companies into a single Gold layer that powers dashboards.
+Built an end-to-end ETL pipeline using Medallion architecture (Bronze/Silver/Gold) on Databricks, PySpark and Delta Lake, ingesting 62K+ order records from 180+ daily files in AWS S3 and merging an acquired company’s data into the parent’s unified star-schema Gold layer.
+Automated the pipeline with a multi-task Databricks Workflow (Lakeflow Job) on serverless compute, chaining customer, product and pricing dimension tasks before the incremental fact load, so dependencies run in the correct order with no manual notebook execution.
+Engineered incremental loads using Delta Lake MERGE (upserts) and staging tables for idempotent, duplicate-free processing. Standardized inconsistent data (multiple date formats, invalid prices, typos, orphan IDs) and reconciled daily child data with the parent’s monthly grain.
 
 ## Architecture
 <img width="20005" height="11129" alt="project_architecture" src="https://github.com/user-attachments/assets/97ee6af2-4017-411c-85cd-49e260d29725" />
