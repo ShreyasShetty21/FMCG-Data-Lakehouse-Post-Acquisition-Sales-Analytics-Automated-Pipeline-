@@ -14,6 +14,14 @@ Engineered incremental loads using Delta Lake MERGE (upserts) and staging tables
 ## Architecture
 <img width="20005" height="11129" alt="project_architecture" src="https://github.com/user-attachments/assets/97ee6af2-4017-411c-85cd-49e260d29725" />
 
+## Tech Stacks
+1.Databricks, 
+2.PySpark,
+3.Delta Lake,
+4.SQL
+5.AWS S3
+6.Unity Catalog
+
 ## Key Features
 -Bronze, silver, and gold processing layers for customers, products, pricing, and orders
 -Full-load and incremental fact ingestion with staging tables and merge logic
